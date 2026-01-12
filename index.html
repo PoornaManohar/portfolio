@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poorna Manohar | Software Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== CSS Reset & Base Styles ===== */
+        :root {
+            /* Light Mode Colors */
+            --color-bg: #ffffff;
+            --color-surface: #f5f5f7;
+            --color-surface-elevated: #ffffff;
+            --color-text-primary: #1d1d1f;
+            --color-text-secondary: #86868b;
+            --color-text-tertiary: #a1a1a6;
+            --color-accent: #0071e3;
+            --color-accent-light: #2997ff;
+            --color-border: #d2d2d7;
+            --color-card: #ffffff;
+            
+            /* Typography */
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            
+            /* Spacing */
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 4rem;
+            --spacing-xxl: 8rem;
+            
+            /* Animation */
+            --easing-standard: cubic-bezier(0.2, 0, 0, 1);
+            --easing-emphasized: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .dark {
+            /* Dark Mode Colors */
+            --color-bg: #000000;
+            --color-surface: #1d1d1f;
+            --color-surface-elevated: #2c2c2e;
+            --color-text-primary: #f5f5f7;
+            --color-text-secondary: #a1a1a6;
+            --color-text-tertiary: #6e6e73;
+            --color-accent: #2997ff;
+            --color-accent-light: #5eb0ff;
+            --color-border: #424245;
+            --color-card: #1d1d1f;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-bg);
+            color: var(--color-text-primary);
+            line-height: 1.47059;
+            font-weight: 400;
+            letter-spacing: -0.022em;
+            overflow-x: hidden;
+            transition: background-color 0.6s var(--easing-standard), color 0.6s var(--easing-standard);
+        }
+        
+        /* ===== Typography System ===== */
+        .display-large {
+            font-size: clamp(3.5rem, 8vw, 6rem);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+        }
+        
+        .display-small {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.022em;
+        }
+        
+        .headline-large {
+            font-size: clamp(2rem, 4.5vw, 3rem);
+            font-weight: 700;
+            line-height: 1.16667;
+            letter-spacing: -0.02em;
+        }
+        
+        .headline-medium {
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.018em;
+        }
+        
+        .headline-small {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            line-height: 1.3;
+            letter-spacing: -0.015em;
+        }
+        
+        .title-large {
+            font-size: 1.375rem;
+            font-weight: 600;
+            line-height: 1.36364;
+            letter-spacing: -0.011em;
+        }
+        
+        .title-medium {
+            font-size: 1.125rem;
+            font-weight: 500;
+            line-height: 1.44444;
+            letter-spacing: -0.006em;
+        }
+        
+        .body-large {
+            font-size: 1.0625rem;
+            font-weight: 400;
+            line-height: 1.47059;
+            letter-spacing: -0.022em;
+        }
+        
+        .body-medium {
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            letter-spacing: -0.016em;
+        }
+        
+        .body-small {
+            font-size: 0.875rem;
+            font-weight: 400;
+            line-height: 1.42857;
+            letter-spacing: -0.014em;
+        }
+        
+        .label-large {
+            font-size: 0.875rem;
+            font-weight: 500;
+            line-height: 1.42857;
+            letter-spacing: -0.006em;
+        }
+        
+        /* ===== Layout Utilities ===== */
+        .container {
+            width: 100%;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        
+        .section {
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .section-xl {
+            padding: var(--spacing-xxl) 0;
+        }
+        
+        .grid {
+            display: grid;
+            gap: var(--spacing-lg);
+        }
+        
+        .grid-cols-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .grid-cols-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        /* ===== Component Styles ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.875rem 1.75rem;
+            border-radius: 980px;
+            font-weight: 500;
+            letter-spacing: -0.011em;
+            text-decoration: none;
+            transition: all 0.3s var(--easing-standard);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--color-accent);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--color-accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(0, 113, 227, 0.2);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-accent);
+            border: 1px solid var(--color-border);
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(41, 151, 255, 0.08);
+            border-color: var(--color-accent);
+            transform: translateY(-2px);
+        }
+        
+        .card {
+            background-color: var(--color-card);
+            border-radius: 20px;
+            padding: var(--spacing-lg);
+            transition: all 0.4s var(--easing-standard);
+            border: 1px solid transparent;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: var(--color-border);
+        }
+        
+        .dark .card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--color-accent);
+        }
+        
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 1.5rem;
+            width: 2px;
+            height: calc(100% + var(--spacing-lg));
+            background-color: var(--color-border);
+        }
+        
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        
+        .skill-bar {
+            height: 4px;
+            background-color: var(--color-border);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-top: var(--spacing-sm);
+        }
+        
+        .skill-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+            border-radius: 2px;
+            width: 0;
+            transition: width 1.5s var(--easing-emphasized);
+        }
+        
+        /* ===== Animation Classes ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s var(--easing-emphasized), transform 0.8s var(--easing-emphasized);
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stagger-child > * {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s var(--easing-emphasized), transform 0.6s var(--easing-emphasized);
+        }
+        
+        .stagger-child.visible > * {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stagger-child.visible > *:nth-child(2) {
+            transition-delay: 0.1s;
+        }
+        
+        .stagger-child.visible > *:nth-child(3) {
+            transition-delay: 0.2s;
+        }
+        
+        .stagger-child.visible > *:nth-child(4) {
+            transition-delay: 0.3s;
+        }
+        
+        .stagger-child.visible > *:nth-child(5) {
+            transition-delay: 0.4s;
+        }
+        
+        /* ===== Header & Navigation ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: var(--spacing-md) 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            transition: all 0.6s var(--easing-standard);
+        }
+        
+        .dark .header {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .header.scrolled {
+            padding: var(--spacing-sm) 0;
+            box-shadow: 0 1px 0 var(--color-border);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+            color: var(--color-text-primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-xl);
+        }
+        
+        .nav-link {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s var(--easing-standard);
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--color-text-primary);
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-accent);
+            transition: width 0.3s var(--easing-standard);
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            font-size: 1.25rem;
+            transition: color 0.3s var(--easing-standard);
+            padding: var(--spacing-xs);
+        }
+        
+        .theme-toggle:hover {
+            color: var(--color-text-primary);
+        }
+        
+        /* ===== Hero Section ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(41, 151, 255, 0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        /* ===== Footer ===== */
+        .footer {
+            border-top: 1px solid var(--color-border);
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+        }
+        
+        /* ===== Responsive Design ===== */
+        @media (max-width: 768px) {
+            .grid-cols-2, .grid-cols-3 {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .section-xl {
+                padding: var(--spacing-xl) 0;
+            }
+            
+            .hero {
+                min-height: 90vh;
+            }
+            
+            .display-large {
+                font-size: clamp(2.5rem, 10vw, 4rem);
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .container {
+                max-width: 692px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="nav-logo">Poorna Manohar</a>
+                <div class="nav-links">
+                    <a href="#about" class="nav-link body-medium">About</a>
+                    <a href="#experience" class="nav-link body-medium">Experience</a>
+                    <a href="#projects" class="nav-link body-medium">Projects</a>
+                    <a href="#skills" class="nav-link body-medium">Skills</a>
+                    <a href="#contact" class="nav-link body-medium">Contact</a>
+                </div>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero section" id="hero">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="hero-content fade-in" id="heroContent">
+                <p class="body-large" style="color: var(--color-accent); margin-bottom: var(--spacing-md);">Software Engineer</p>
+                <h1 class="display-large" style="margin-bottom: var(--spacing-md);">Building digital experiences with precision and purpose.</h1>
+                <p class="body-large" style="color: var(--color-text-secondary); margin-bottom: var(--spacing-xl); max-width: 600px;">
+                    Early-career software engineer passionate about crafting real applications and user-facing features. 
+                    Strong JavaScript fundamentals with backend expertise in Node.js and modern databases.
+                </p>
+                <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap;">
+                    <a href="#projects" class="btn btn-primary title-medium">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary title-medium">Get in Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="grid grid-cols-2" style="gap: var(--spacing-xl); align-items: center;">
+                <div class="fade-in">
+                    <h2 class="headline-medium" style="margin-bottom: var(--spacing-lg);">About Me</h2>
+                    <p class="body-large" style="color: var(--color-text-secondary); margin-bottom: var(--spacing-md);">
+                        I'm focused on learning full-stack product development, cloud technologies, and scalable APIs. 
+                        Seeking a product-driven engineering role to contribute to real features and grow through hands-on development.
+                    </p>
+                    <p class="body-large" style="color: var(--color-text-secondary); margin-bottom: var(--spacing-xl);">
+                        With a strong foundation in JavaScript and experience in React.js, Node.js, and databases, 
+                        I enjoy building complete applications from frontend to backend.
+                    </p>
+                    <div class="grid grid-cols-2" style="gap: var(--spacing-lg);">
+                        <div>
+                            <p class="label-large" style="color: var(--color-text-tertiary); margin-bottom: var(--spacing-xs);">Location</p>
+                            <p class="title-medium">Visakhapatnam, India</p>
+                        </div>
+                        <div>
+                            <p class="label-large" style="color: var(--color-text-tertiary); margin-bottom: var(--spacing-xs);">Email</p>
+                            <a href="mailto:poornamanohar754@gmail.com" class="title-medium" style="color: var(--color-accent); text-decoration: none;">poornamanohar754@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in" style="text-align: center;">
+                    <div style="width: 280px; height: 280px; border-radius: 50%; background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light)); margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+                        <span class="display-large" style="color: white; font-weight: 800;">PM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section" id="experience" style="background-color: var(--color-surface);">
+        <div class="container">
+            <h2 class="headline-medium fade-in" style="text-align: center; margin-bottom: var(--spacing-xl);">Experience & Education</h2>
+            <div class="stagger-child" id="timeline">
+                <div class="timeline-item fade-in">
+                    <p class="label-large" style="color: var(--color-accent); margin-bottom: var(--spacing-xs);">Dec 2023 - Mar 2024</p>
+                    <h3 class="title-large" style="margin-bottom: var(--spacing-xs);">Web Developer</h3>
+                    <p class="title-medium" style="color: var(--color-text-secondary); margin-bottom: var(--spacing-sm);">Slash Mark</p>
+                    <ul style="color: var(--color-text-secondary); padding-left: var(--spacing-md);">
+                        <li class="body-medium" style="margin-bottom: var(--spacing-xs);">Developed and maintained front-end components using ReactJS</li>
+                        <li class="body-medium" style="margin-bottom: var(--spacing-xs);">Wrote efficient, clean code in HTML, CSS, and JavaScript</li>
+                        <li class="body-medium" style="margin-bottom: var(--spacing-xs);">Collaborated with cross-functional teams and engaged with stakeholders</li>
+                        <li class="body-medium">Debugged UI and interaction issues, improving performance and usability</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <p class="label-large" style="color: var(--color-accent); margin-bottom: var(--spacing-xs);">2020 - Present</p>
+                    <h3 class="title-large" style="margin-bottom: var(--spacing-xs);">B.Tech: Computer Science & Engineering</h3>
+                    <p class="title-medium" style="color: var(--color-text-secondary);">Vignan's Institute of Information Technology</p>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <p class="label-large" style="color: var(--color-accent); margin-bottom: var(--spacing-xs);">2018 - 2020</p>
+                    <h3 class="title-large" style="margin-bottom: var(--spacing-xs);">Intermediate: MPC</h3>
+                    <p class="title-medium" style="color: var(--color-text-secondary);">Tirumala Jr. College</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section-xl" id="projects">
+        <div class="container">
+            <h2 class="headline-medium fade-in" style="text-align: center; margin-bottom: var(--spacing-xl);">Featured Projects</h2>
+            <div class="grid grid-cols-2 stagger-child" id="projectsGrid" style="gap: var(--spacing-lg);">
+                <!-- Project 1 -->
+                <div class="card fade-in">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--spacing-md);">
+                        <h3 class="title-large">StayScape</h3>
+                        <span class="label-large" style="color: var(--color-accent); background-color: rgba(41, 151, 255, 0.1); padding: 4px 12px; border-radius: 12px;">Full Stack</span>
+                    </div>
+                    <p class="body-medium" style="color: var(--color-text-secondary); margin-bottom: var(--spacing-md);">
+                        A complete hotel booking and management platform with separate user and owner interfaces.
+                    </p>
+                    <div style="margin-bottom: var(--spacing-md);">
+                        <p class="label-large" style="color: var(--color-text-tertiary); margin-bottom: var(--spacing-xs);">Key Features</p>
+                        <ul style="color: var(--color-text-secondary); padding-left: var(--spacing-md);">
+                            <li class="body-medium" style="margin-bottom: var(--spacing-xs);">Responsive booking flow with property browsing</li>
+                            <li class="body-medium" style="margin-bottom: var(--spacing-xs);">Owner dashboard for listing management</li>
+                            <li class="body-medium">Deployed on Vercel with full connectivity</li>
+                        </ul>
+                    </div>
+                    <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-xs); margin-bottom: var(--spacing-md);">
+                        <span class="body-small" style="background-color: var(--color-surface); padding: 4px 12px; border-radius: 12px;">React.js</span>
+                        <span class="body-small" style="background-color: var(--color-surface); padding: 4px 12px; border-radius: 12px;">Node.js</span>
+                        <span class="body-small" style="background-color: var(--color-surface); padding: 4px 12px; border-radius: 12px;">MongoDB</span>
+                        <span class="body-small" style="background-color: var(--color-surface); padding: 4px 12px; border-radius: 12px;">Express.js</span>
+                    </div>
+                    <div style="display: flex; gap: var(--spacing-md);">
+                        <a href="https://stay-scape-bice.vercel.app/" target="_blank" class="body-medium" style="color: var(--color-accent); text-decoration: none;">Live Demo →</a>
+                        <a href="https://github.com/PoornaManohar/StayScape" target="_blank" class="body-medium" style="color: var(--color-text-secondary); text-decoration: none;">Source Code</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="card fade-in">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--spacing-md);">
+                        <h3 class="title-large">Realtime Chat App</h3>
+                        <span class="label-large" style="color: var(--color-accent); background-color: rgba(41, 151, 255, 0.1); padding: 4px 12px; border-radius: 12px;">Real-time</span>
+                    </div>
+                    <p class="body-medium" style="color: var(--color-text-secondary); margin-bottom: var(--spacing-md);">
+                        A comprehensive real-time chat application enabling instant communication between users.
+                    </p>
+                    <div style="margin-bottom: var(--spacing-md);">
+                        <p class="label-large" style="color: var(--color-text-tertiary); margin-bottom: var(--spacing-xs);">Key Features</p>
+                        <ul style="color: var(--color-text-secondary); padding-left: var(--spacing-md);">
+                            <li class="body-medium" style="margin-bottom: var(--spacing-xs);">Responsive chat interface</li>
+                            <li class="body-medium" style="margin-bottom: var(--spacing-xs);">WebSocket event flow for real-time messaging</li>
+                            <li class="body-medium">Modern chat application features</li>
+                        </ul>
+                    </div>
+                    <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-xs); margin-bottom: var(--spacing-md);">
+                        <span class="body-small" style="background-color: var(--color-surface); padding: 4px 12px; border-radius: 12px;">React.js</span>
+                        <span class="body-small" style="background-color: var(--color-surface); padding: 4px 12px; border-radius: 12px;">Node.js</span>
+                        <span class="body-small" style="background-color: var(--color-surface); padding: 4px 12px; border-radius: 12px;">WebSockets</span>
+                        <span class="body-small" style="background-color: var(--color-surface); padding: 4px 12px; border-radius: 12px;">MongoDB</span>
+                    </div>
+                    <div style="display: flex; gap: var(--spacing-md);">
+                        <a href="https://github.com/PoornaManohar/Real-time-chat-application" target="_blank" class="body-medium" style="color: var(--color-accent); text-decoration: none;">View Project →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills" style="background-color: var(--color-surface);">
+        <div class="container">
+            <h2 class="headline-medium fade-in" style="text-align: center; margin-bottom: var(--spacing-xl);">Technical Skills</h2>
+            <div class="grid grid-cols-3 stagger-child" id="skillsGrid" style="gap: var(--spacing-lg);">
+                <!-- Languages -->
+                <div class="card fade-in">
+                    <h3 class="title-large" style="margin-bottom: var(--spacing-md); display: flex; align-items: center; gap: var(--spacing-sm);">
+                        <i class="fas fa-code" style="color: var(--color-accent);"></i> Languages
+                    </h3>
+                    <div style="margin-bottom: var(--spacing-md);">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-xs);">
+                            <span class="body-medium">JavaScript (ES6+)</span>
+                            <span class="body-medium" style="color: var(--color-accent);">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: var(--spacing-md);">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-xs);">
+                            <span class="body-medium">Java</span>
+                            <span class="body-medium" style="color: var(--color-accent);">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-width="80"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: var(--spacing-xs);">
+                            <span class="body-medium">C/C++</span>
+                            <span class="body-medium" style="color: var(--color-accent);">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" data-width="75"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frontend & Backend -->
+                <div class="card fade-in">
+                    <h3 class="title-large" style="margin-bottom: var(--spacing-md); display: flex; align-items: center; gap: var(--spacing-sm);">
+                        <i class="fas fa-layer-group" style="color: var(--color-accent);"></i> Frontend
+                    </h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-xs); margin-bottom: var(--spacing-lg);">
+                        <span class="body-small" style="background-color: var(--color-surface); padding: 6px 12px; border-radius: 12px;">React.js</span>
+                        <span class="body-small" style="background-color: var(--color-surface); padding: 6px 12px; border-radius: 12px;">Tailwind CSS</span>
+                        <span class="body-small" style="background-color: var(--color-surface); padding: 6px 12px; border-radius: 12px;">Responsive UI</span>
+                        <span class="body-small" style="background-color: var(--color-surface); padding: 6px 12px; border-radius: 12px;">Modular Components</span>
+                    </div>
+                    
+                    <h3 class="title-large" style="margin-bottom: var(--spacing-md); display: flex; align-items: center; gap: var(--spacing-sm);">
+                        <i class="fas fa-server" style="color: var(--color-accent);"></i> Backend
+                    </h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-xs);">
+                        <span class="body-small" style="background-color: var(--color-surface); padding: 6px 12px; border-radius: 12px;">Node.js</span>
+                        <span class="body-small" style="background-color: var(--color-surface); padding: 6px 12px; border-radius: 12px;">Express.js</span>
+                        <span class="body-small" style="background-color: var(--color-surface); padding: 6px 12px; border-radius: 12px;">REST APIs</span>
+                        <span class="body-small" style="background-color: var(--color-surface); padding: 6px 12px; border-radius: 12px;">JWT Auth</span>
+                    </div>
+                </div>
+
+                <!-- Databases & Tools -->
+                <div class="card fade-in">
+                    <h3 class="title-large" style="margin-bottom: var(--spacing-md); display: flex; align-items: center; gap: var(--spacing-sm);">
+                        <i class="fas fa-database" style="color: var(--color-accent);"></i> Databases & Tools
+                    </h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-xs); margin-bottom: var(--spacing-lg);">
+                        <span class="body-small" style="background-color: var(--color-surface); padding: 6px 12px; border-radius: 12px;">MongoDB</span>
+                        <span class="body-small" style="background-color: var(--color-surface); padding: 6px 12px; border-radius: 12px;">MySQL</span>
+                        <span class="body-small" style="background-color: var(--color-surface); padding: 6px 12px; border-radius: 12px;">Git & GitHub</span>
+                        <span class="body-small" style="background-color: var(--color-surface); padding: 6px 12px; border-radius: 12px;">Postman</span>
+                        <span class="body-small" style="background-color: var(--color-surface); padding: 6px 12px; border-radius: 12px;">Debugging</span>
+                        <span class="body-small" style="background-color: var(--color-surface); padding: 6px 12px; border-radius: 12px;">API Testing</span>
+                    </div>
+                    
+                    <div style="background-color: rgba(41, 151, 255, 0.05); padding: var(--spacing-md); border-radius: 16px; border: 1px solid var(--color-accent);">
+                        <h4 class="title-medium" style="color: var(--color-accent); margin-bottom: var(--spacing-xs);">Currently Learning</h4>
+                        <p class="body-medium" style="color: var(--color-text-secondary);">Cloud technologies, scalable APIs, and full-stack product development</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-xl" id="contact">
+        <div class="container">
+            <div class="stagger-child" id="contactContent" style="max-width: 600px; margin: 0 auto;">
+                <h2 class="headline-medium fade-in" style="text-align: center; margin-bottom: var(--spacing-md);">Let's Connect</h2>
+                <p class="body-large fade-in" style="color: var(--color-text-secondary); margin-bottom: var(--spacing-xl); text-align: center;">
+                    I'm currently seeking new opportunities in software engineering. 
+                    Feel free to reach out for collaborations or just to say hello!
+                </p>
+                
+                <!-- Contact Form -->
+                <div class="card fade-in" style="margin-bottom: var(--spacing-xl);">
+                    <form id="contactForm">
+                        <div style="margin-bottom: var(--spacing-md);">
+                            <label for="name" class="body-medium" style="display: block; margin-bottom: var(--spacing-xs); color: var(--color-text-primary);">Name</label>
+                            <input type="text" id="name" name="name" required 
+                                   style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--color-border); background-color: var(--color-bg); color: var(--color-text-primary); font-size: 1rem; transition: border-color 0.3s var(--easing-standard);"
+                                   placeholder="Your name">
+                        </div>
+                        
+                        <div style="margin-bottom: var(--spacing-md);">
+                            <label for="email" class="body-medium" style="display: block; margin-bottom: var(--spacing-xs); color: var(--color-text-primary);">Email</label>
+                            <input type="email" id="email" name="email" required 
+                                   style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--color-border); background-color: var(--color-bg); color: var(--color-text-primary); font-size: 1rem; transition: border-color 0.3s var(--easing-standard);"
+                                   placeholder="your.email@example.com">
+                        </div>
+                        
+                        <div style="margin-bottom: var(--spacing-lg);">
+                            <label for="message" class="body-medium" style="display: block; margin-bottom: var(--spacing-xs); color: var(--color-text-primary);">Message</label>
+                            <textarea id="message" name="message" rows="5" required 
+                                      style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--color-border); background-color: var(--color-bg); color: var(--color-text-primary); font-size: 1rem; transition: border-color 0.3s var(--easing-standard); resize: vertical; font-family: var(--font-sans);"
+                                      placeholder="Hi Poorna, I'd like to discuss..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px;">
+                            <span id="submitText">Send Message</span>
+                            <div id="loadingSpinner" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i> Sending...
+                            </div>
+                        </button>
+                        
+                        <div id="formSuccess" style="display: none; margin-top: var(--spacing-md); padding: var(--spacing-md); background-color: rgba(48, 209, 88, 0.1); border-radius: 12px; color: #30d158; text-align: center;">
+                            <i class="fas fa-check-circle"></i> Message sent successfully!
+                        </div>
+                        
+                        <div id="formError" style="display: none; margin-top: var(--spacing-md); padding: var(--spacing-md); background-color: rgba(255, 69, 58, 0.1); border-radius: 12px; color: #ff453a; text-align: center;">
+                            <i class="fas fa-exclamation-circle"></i> Something went wrong. Please try again.
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Direct Contact Info -->
+                <div class="fade-in" style="text-align: center;">
+                    <p class="body-medium" style="color: var(--color-text-tertiary); margin-bottom: var(--spacing-md);">Or contact me directly at:</p>
+                    <a href="mailto:poornamanohar754@gmail.com" class="title-medium" style="color: var(--color-accent); text-decoration: none; display: block; margin-bottom: var(--spacing-sm);">
+                        poornamanohar754@gmail.com
+                    </a>
+                    <a href="tel:+916301232334" class="body-medium" style="color: var(--color-text-secondary); text-decoration: none; display: block; margin-bottom: var(--spacing-lg);">
+                        +91 6301232334
+                    </a>
+                    
+                    <div style="display: flex; justify-content: center; gap: var(--spacing-md); margin-top: var(--spacing-lg);">
+                        <a href="https://www.linkedin.com/in/poorna-manohar/" target="_blank" class="btn-secondary btn" style="padding: 8px 16px;">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/PoornaManohar" target="_blank" class="btn-secondary btn" style="padding: 8px 16px;">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://x.com/Mano6943" target="_blank" class="btn-secondary btn" style="padding: 8px 16px;">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="body-medium" style="color: var(--color-text-secondary);">© 2024 Poorna Manohar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ===== Theme Toggle =====
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const htmlElement = document.documentElement;
+        
+        // Check for saved theme or prefer-color-scheme
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            htmlElement.classList.add('dark');
+            themeIcon.className = 'fas fa-sun';
+        } else {
+            htmlElement.classList.remove('dark');
+            themeIcon.className = 'fas fa-moon';
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                themeIcon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.add('dark');
+                themeIcon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // ===== Scroll Animations =====
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Animate skill bars
+                    if (entry.target.id === 'skillsGrid' || entry.target.classList.contains('card')) {
+                        const skillBars = entry.target.querySelectorAll('.skill-bar-fill');
+                        skillBars.forEach(bar => {
+                            const width = bar.getAttribute('data-width');
+                            setTimeout(() => {
+                                bar.style.width = `${width}%`;
+                            }, 300);
+                        });
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in, .stagger-child').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ===== Header Scroll Effect =====
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // ===== Smooth Scrolling =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ===== Contact Form Handling =====
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const submitText = document.getElementById('submitText');
+                const loadingSpinner = document.getElementById('loadingSpinner');
+                const formSuccess = document.getElementById('formSuccess');
+                const formError = document.getElementById('formError');
+                
+                // Hide any previous messages
+                formSuccess.style.display = 'none';
+                formError.style.display = 'none';
+                
+                // Show loading state
+                submitText.style.display = 'none';
+                loadingSpinner.style.display = 'block';
+                
+                // Simulate form submission (in a real implementation, this would be an API call)
+                setTimeout(() => {
+                    // For demo purposes, we'll simulate success
+                    // In production, replace with actual form submission
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Show success message
+                    loadingSpinner.style.display = 'none';
+                    formSuccess.style.display = 'block';
+                    submitText.style.display = 'inline';
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        formSuccess.style.display = 'none';
+                    }, 5000);
+                    
+                    // In a real implementation, you would send the data to a server here
+                    // Example using Formspree or similar service:
+                    /*
+                    const formData = new FormData(contactForm);
+                    fetch('https://formspree.io/f/YOUR_FORM_ID', {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            formSuccess.style.display = 'block';
+                            contactForm.reset();
+                        } else {
+                            formError.style.display = 'block';
+                        }
+                    })
+                    .catch(error => {
+                        formError.style.display = 'block';
+                    })
+                    .finally(() => {
+                        loadingSpinner.style.display = 'none';
+                        submitText.style.display = 'inline';
+                    });
+                    */
+                }, 1500);
+            });
+        }
+
+        // ===== Hero Entrance Animation =====
+        window.addEventListener('load', () => {
+            const heroContent = document.getElementById('heroContent');
+            setTimeout(() => {
+                heroContent.classList.add('visible');
+            }, 300);
+        });
+
+        // ===== Micro-interactions for Cards =====
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // ===== Parallax Effect for Hero Background =====
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroBackground = document.querySelector('.hero-background');
+            if (heroBackground) {
+                heroBackground.style.transform = `translateY(${scrolled * 0.05}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
