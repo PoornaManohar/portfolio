@@ -106,12 +106,12 @@ export default function Hero() {
           >
             {roles[roleIndex]}
           </span>{' '}
-          based in Visakhapatnam.
+          based in Hyderabad.
         </p>
 
         {/* Description */}
         <p className="blur-in text-sm md:text-base text-muted max-w-lg mb-12 font-body leading-relaxed">
-          Building scalable full-stack applications with React, Node.js & modern web technologies. 
+          Building scalable full-stack applications with React, Node.js & modern web technologies.
           Passionate about crafting seamless digital experiences.
         </p>
 
@@ -120,17 +120,15 @@ export default function Hero() {
           {/* See Projects */}
           <div className="relative">
             <span
-              className={`absolute rounded-full accent-gradient transition-opacity duration-300 ${
-                seeWorksHovered ? 'opacity-100' : 'opacity-0'
-              }`}
+              className={`absolute rounded-full accent-gradient transition-opacity duration-300 ${seeWorksHovered ? 'opacity-100' : 'opacity-0'
+                }`}
               style={{ inset: '-2px' }}
             />
             <button
-              className={`relative rounded-full text-sm px-7 py-3.5 font-body transition-all duration-300 hover:scale-105 ${
-                seeWorksHovered
+              className={`relative rounded-full text-sm px-7 py-3.5 font-body transition-all duration-300 hover:scale-105 ${seeWorksHovered
                   ? 'bg-bg text-text-primary'
                   : 'bg-text-primary text-bg'
-              }`}
+                }`}
               onMouseEnter={() => setSeeWorksHovered(true)}
               onMouseLeave={() => setSeeWorksHovered(false)}
               onClick={() => {
@@ -145,17 +143,15 @@ export default function Hero() {
           {/* Reach out */}
           <div className="relative">
             <span
-              className={`absolute rounded-full accent-gradient transition-opacity duration-300 ${
-                reachOutHovered ? 'opacity-100' : 'opacity-0'
-              }`}
+              className={`absolute rounded-full accent-gradient transition-opacity duration-300 ${reachOutHovered ? 'opacity-100' : 'opacity-0'
+                }`}
               style={{ inset: '-2px' }}
             />
             <button
-              className={`relative rounded-full text-sm px-7 py-3.5 font-body transition-all duration-300 hover:scale-105 ${
-                reachOutHovered
+              className={`relative rounded-full text-sm px-7 py-3.5 font-body transition-all duration-300 hover:scale-105 ${reachOutHovered
                   ? 'border-transparent bg-bg text-text-primary'
                   : 'border-2 border-stroke bg-bg text-text-primary'
-              }`}
+                }`}
               onMouseEnter={() => setReachOutHovered(true)}
               onMouseLeave={() => setReachOutHovered(false)}
               onClick={() => {

@@ -59,7 +59,7 @@ export default function About() {
           >
             {/* Info cards */}
             {[
-              { label: 'Location', value: 'Visakhapatnam, India', icon: '📍' },
+              { label: 'Location', value: 'Hyderabad, India', icon: '📍' },
               { label: 'Email', value: 'poornamanohar754@gmail.com', icon: '✉️' },
               { label: 'Phone', value: '+91 6301232334', icon: '📱' },
               { label: 'Currently at', value: 'TCS — Systems Engineer', icon: '💼' },
